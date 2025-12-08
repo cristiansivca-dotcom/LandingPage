@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { caseStudies } from "@/data/case-studies.data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+
 
 function linkifyInstagram(text: string) {
   return text.split(/(@\w+)/g).map((part, idx) => {
@@ -61,7 +61,7 @@ export function CaseStudies() {
       id="case-studies"
       className="relative py-16 md:py-24 bg-card overflow-hidden"
     >
-      <AnimatedBackground />
+
       <div className="relative z-10 container mx-auto px-2 sm:px-4 md:px-6">
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary drop-shadow-lg">
