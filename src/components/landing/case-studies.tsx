@@ -54,26 +54,16 @@ export function CaseStudies() {
         </div>
         <div className="relative">
           <Carousel
-            ref={carouselRef}
+    
             slidesToShow={3}
             responsive={[
               {
                 breakpoint: 1280,
-                settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 2,
-                  infinite: true,
-                  dots: true,
-                },
+                settings: { slidesToShow: 2, slidesToScroll: 2, dots: true },
               },
               {
                 breakpoint: 768,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                  infinite: true,
-                  dots: true,
-                },
+                settings: { slidesToShow: 1, slidesToScroll: 1, dots: true },
               },
             ]}
             className="w-full max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200"

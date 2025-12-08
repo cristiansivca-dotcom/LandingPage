@@ -16,7 +16,7 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn("absolute  h-8 w-8 rounded-full", className)}
+      className={cn("absolute h-8 w-8 rounded-full", className)}
       style={style}
       onClick={onClick}
     >
@@ -45,17 +45,19 @@ const CarouselNext = React.forwardRef<
     </Button>
   );
 });
+CarouselNext.displayName = "CarouselNext";
 
-const settings = {
+// Configuración base del carrusel
+const baseSettings: Settings = {
   dots: true,
   infinite: true,
   slidesToScroll: 1,
-  autoplay: true,
-  speed: 10100,
-  autoplaySpeed: 100,
-  cssEase: "linear",
+  autoplay: false,
+  speed: 600,
+  autoplaySpeed: 4000,
+  cssEase: "ease",
   pauseOnHover: true,
-  centerMode: true,
+  // centerMode: false, // Eliminado para responsividad
 };
 
 const Carousel = React.forwardRef<
@@ -64,16 +66,17 @@ const Carousel = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   const sliderRef = React.useRef<any>(null);
 
+  // Mezcla los settings base con los props recibidos (como responsive y slidesToShow)
+  const mergedSettings = { ...baseSettings, ...props };
+
   return (
     <div ref={ref} className={cn("relative", className)}>
-      <Slider {...(settings ?? {})} {...(props ?? {})} ref={sliderRef}>
+      <Slider {...mergedSettings} ref={sliderRef}>
         {children}
       </Slider>
     </div>
   );
 });
 Carousel.displayName = "Carousel";
-
-CarouselNext.displayName = "CarouselNext";
 
 export { Carousel, CarouselPrevious, CarouselNext };
