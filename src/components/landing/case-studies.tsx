@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import Image from "next/image";
+import Slider from "react-slick";
 import {
   Card,
   CardContent,
@@ -10,7 +11,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { caseStudies } from "@/data/case-studies.data";
-import { Carousel } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
@@ -35,7 +35,26 @@ function linkifyInstagram(text: string) {
 }
 
 export function CaseStudies() {
-  const carouselRef = useRef<any>(null);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: { slidesToShow: 2, slidesToScroll: 1, dots: true },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1, slidesToScroll: 1, dots: true },
+      },
+    ],
+    arrows: false,
+    autoplay: false,
+    pauseOnHover: true,
+  };
 
   return (
     <section
@@ -53,27 +72,16 @@ export function CaseStudies() {
           </p>
         </div>
         <div className="relative">
-          <Carousel
-    
-            slidesToShow={3}
-            responsive={[
-              {
-                breakpoint: 1280,
-                settings: { slidesToShow: 2, slidesToScroll: 2, dots: true },
-              },
-              {
-                breakpoint: 768,
-                settings: { slidesToShow: 1, slidesToScroll: 1, dots: true },
-              },
-            ]}
-            className="w-full max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200"
-          >
+          <Slider {...settings} className="w-full max-w-5xl mx-auto">
             {caseStudies.map((study) => {
               const studyImage = PlaceHolderImages.find(
                 (p) => p.id === study.id
               );
               return (
-                <div className="flex justify-center items-center px-0 sm:px-3 h-full min-w-0">
+                <div
+                  key={study.id}
+                  className="flex justify-center items-center px-0 sm:px-3 h-full min-w-0"
+                >
                   <Card className="w-full max-w-lg h-full flex flex-col overflow-hidden group bg-white/90 backdrop-blur-md shadow-2xl border-0 transition-all duration-300 hover:shadow-accent hover:-translate-y-2">
                     <CardHeader className="p-0">
                       <div className="relative w-full aspect-video overflow-hidden rounded-t-xl">
@@ -100,7 +108,7 @@ export function CaseStudies() {
                 </div>
               );
             })}
-          </Carousel>
+          </Slider>
         </div>
       </div>
     </section>
