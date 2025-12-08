@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/image/hero.svg";
-import logo from "@/assets/image/logo_sivca.png"; // tu logo oficial
+import logo from "@/assets/image/logo_sivca.png";
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen w-full flex items-center justify-center text-center text-white"
+      className="relative min-h-[80vh] md:min-h-screen w-full flex items-center justify-center text-center text-white overflow-hidden"
     >
       {/* Imagen de fondo */}
       <Image
@@ -23,20 +23,21 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-primary/40 to-black/70" />
 
       {/* Contenido */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 animate-in fade-in zoom-in-95 duration-1000">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 md:py-0 flex flex-col items-center justify-center">
         {/* Logo de la empresa */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6 md:mb-8">
           <Image
             src={logo}
             alt="Logo SIVCA"
-            width={200}
-            height={160}
-            className="drop-shadow-lg"
+            width={50}
+            height={50}
+            className="drop-shadow-lg w-28 h-auto md:w-48"
+            priority
           />
         </div>
 
         <h1
-          className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight leading-tight"
+          className="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight"
           style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.6)" }}
         >
           Servicios Integrales de Venezuela C.A
@@ -44,7 +45,7 @@ export function Hero() {
 
         {/* Subtítulo/tagline */}
         <p
-          className="mt-4 text-xl md:text-2xl font-medium text-accent-foreground"
+          className="mt-3 text-lg sm:text-xl md:text-2xl font-medium text-accent-foreground"
           style={{ textShadow: "1px 1px 4px rgba(0,0,0,0.5)" }}
         >
           Excelencia y Calidad de Servicios
@@ -52,7 +53,7 @@ export function Hero() {
 
         {/* Texto descriptivo */}
         <p
-          className="mt-6 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+          className="mt-4 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-2"
           style={{ textShadow: "1px 1px 4px rgba(0,0,0,0.5)" }}
         >
           Expertos en{" "}
@@ -67,7 +68,7 @@ export function Hero() {
         </p>
 
         {/* Botones CTA */}
-        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 w-full">
           <Button
             asChild
             size="lg"

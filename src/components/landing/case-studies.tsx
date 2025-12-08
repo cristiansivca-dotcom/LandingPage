@@ -12,7 +12,7 @@ import {
 import { caseStudies } from "@/data/case-studies.data";
 import { Carousel } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
 function linkifyInstagram(text: string) {
   return text.split(/(@\w+)/g).map((part, idx) => {
@@ -40,9 +40,12 @@ export function CaseStudies() {
   const carouselRef = useRef<any>(null);
 
   return (
-    <section id="case-studies" className="py-16 md:py-24 bg-card">
-      
-      <div className="container mx-auto px-4 md:px-6">
+    <section
+      id="case-studies"
+      className="relative py-16 md:py-24 bg-card overflow-hidden"
+    >
+      <AnimatedBackground />
+      <div className="relative z-10 container mx-auto px-2 sm:px-4 md:px-6">
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">
             Casos de Éxito
@@ -57,36 +60,21 @@ export function CaseStudies() {
             slidesToShow={3}
             responsive={[
               {
-                breakpoint: 1600,
-                settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3,
-                  infinite: true,
-                  dots: true,
-                },
-              },
-              {
-                breakpoint: 1500,
-                settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3,
-                  infinite: true,
-                  dots: true,
-                },
-              },
-              {
-                breakpoint: 1024,
+                breakpoint: 1280,
                 settings: {
                   slidesToShow: 2,
                   slidesToScroll: 2,
-                  initialSlide: 2,
+                  infinite: true,
+                  dots: true,
                 },
               },
               {
-                breakpoint: 480,
+                breakpoint: 768,
                 settings: {
                   slidesToShow: 1,
                   slidesToScroll: 1,
+                  infinite: true,
+                  dots: true,
                 },
               },
             ]}
@@ -97,7 +85,7 @@ export function CaseStudies() {
                 (p) => p.id === study.id
               );
               return (
-                <div className="p-1 h-full">
+                <div className="p-2 sm:p-3 h-full min-w-0">
                   <Card className="h-full flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                     <CardHeader className="p-0">
                       <div className="relative w-full aspect-video overflow-hidden">
@@ -112,8 +100,8 @@ export function CaseStudies() {
                         )}
                       </div>
                     </CardHeader>
-                    <CardContent className="p-6 flex-grow flex flex-col">
-                      <CardTitle className="font-headline text-xl mb-2 text-primary">
+                    <CardContent className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <CardTitle className="font-headline text-lg sm:text-xl mb-2 text-primary">
                         {study.title}
                       </CardTitle>
                       <CardDescription className="flex-grow text-base">
