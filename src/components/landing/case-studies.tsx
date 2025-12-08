@@ -1,34 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { caseStudies } from "@/data/case-studies.data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Carousel } from "@/components/Carousel";
 
 export function CaseStudies() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = carouselRef.current;
-    if (!container) return;
-
-    let scrollAmount = 0;
-    const step = 320; // píxeles a mover cada vez (ajusta según el ancho de tus cards)
-    const interval = setInterval(() => {
-      if (container) {
-        // Si llega al final, vuelve al inicio
-        if (scrollAmount + container.clientWidth >= container.scrollWidth) {
-          scrollAmount = 0;
-        } else {
-          scrollAmount += step;
-        }
-        container.scrollTo({ left: scrollAmount, behavior: "smooth" });
-      }
-    }, 2500); // cada 2.5 segundos
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section id="case-studies" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-2 sm:px-4 md:px-6">
@@ -41,11 +18,8 @@ export function CaseStudies() {
           </p>
         </div>
 
-        {/* Carrusel con autoplay */}
-        <div
-          ref={carouselRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide"
-        >
+        {/* Carrusel reutilizable */}
+        <Carousel step={320} interval={2500}>
           {caseStudies.map((study) => {
             const studyImage = PlaceHolderImages.find((p) => p.id === study.id);
             return (
@@ -72,7 +46,7 @@ export function CaseStudies() {
               </div>
             );
           })}
-        </div>
+        </Carousel>
       </div>
     </section>
   );
