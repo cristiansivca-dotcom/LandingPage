@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "about-us",
+      "description": "Logo Servicios Integrales de Venezuela SIVCA, C.A.",
+      "imageUrl": "/images/logo_sivca.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "case-study-1",
+      "description": "Fabricación y restauración",
+      "imageUrl": "/images/case-study-1.jpg",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "case-study-2",
+      "description": "Publicidad en Móvil Market!",
+      "imageUrl": "/images/case-study-2.jpg",
+      "imageHint": "product launch"
+    },
+    {
+      "id": "case-study-3",
+      "description": "Pepsi Venezuela - Promotoras de Marca",
+      "imageUrl": "/images/case-study-3.jpg",
+      "imageHint": "promotoras"
+    },
+    {
+      "id": "case-study-4",
+      "description": "Manteniamiento de Planta Eléctrica",
+      "imageUrl": "/images/case-study-4.jpg",
+      "imageHint": "plant maintenance"
+    },
+    {
+      "id": "case-study-5",
+      "description": "Instalación de aires acondicionados",
+      "imageUrl": "/images/case-study-5.jpg",
+      "imageHint": "air conditioning installation"
+    }
+  ]
+}
