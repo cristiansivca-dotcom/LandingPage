@@ -12,6 +12,7 @@ import {
 import { caseStudies } from "@/data/case-studies.data";
 import { Carousel } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
 function linkifyInstagram(text: string) {
   return text.split(/(@\w+)/g).map((part, idx) => {
@@ -34,8 +35,6 @@ function linkifyInstagram(text: string) {
 }
 
 export function CaseStudies() {
-  const [current, setCurrent] = useState(0);
-  const total = caseStudies.length;
   const carouselRef = useRef<any>(null);
 
   return (
@@ -43,9 +42,10 @@ export function CaseStudies() {
       id="case-studies"
       className="relative py-16 md:py-24 bg-card overflow-hidden"
     >
+      <AnimatedBackground />
       <div className="relative z-10 container mx-auto px-2 sm:px-4 md:px-6">
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">
+          <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary drop-shadow-lg">
             Casos de Éxito
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -76,17 +76,17 @@ export function CaseStudies() {
                 },
               },
             ]}
-            className="w-full max-w-6xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200"
+            className="w-full max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200"
           >
             {caseStudies.map((study) => {
               const studyImage = PlaceHolderImages.find(
                 (p) => p.id === study.id
               );
               return (
-                <div className="p-2 sm:p-3 h-full min-w-0">
-                  <Card className="h-full flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <div className="flex justify-center items-center px-0 sm:px-3 h-full min-w-0">
+                  <Card className="w-full max-w-lg h-full flex flex-col overflow-hidden group bg-white/90 backdrop-blur-md shadow-2xl border-0 transition-all duration-300 hover:shadow-accent hover:-translate-y-2">
                     <CardHeader className="p-0">
-                      <div className="relative w-full aspect-video overflow-hidden">
+                      <div className="relative w-full aspect-video overflow-hidden rounded-t-xl">
                         {studyImage && (
                           <Image
                             src={studyImage.imageUrl}
@@ -98,11 +98,11 @@ export function CaseStudies() {
                         )}
                       </div>
                     </CardHeader>
-                    <CardContent className="p-4 sm:p-6 flex-grow flex flex-col">
-                      <CardTitle className="font-headline text-lg sm:text-xl mb-2 text-primary">
+                    <CardContent className="p-6 flex-grow flex flex-col">
+                      <CardTitle className="font-headline text-xl mb-2 text-primary">
                         {study.title}
                       </CardTitle>
-                      <CardDescription className="flex-grow text-base">
+                      <CardDescription className="flex-grow text-base text-muted-foreground">
                         {linkifyInstagram(study.description)}
                       </CardDescription>
                     </CardContent>
