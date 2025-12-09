@@ -125,6 +125,30 @@ export function Hero() {
             background-position: 200% center;
           }
         }
+        animate-move-around {
+          animation: moveAround 12s ease-in-out infinite;
+        }
+        .animate-move-around-delayed {
+          animation: moveAround 14s ease-in-out infinite;
+          animation-delay: 4s;
+        }
+        @keyframes moveAround {
+          0% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          25% {
+            transform: translate(30px, -20px) rotate(10deg);
+          }
+          50% {
+            transform: translate(-20px, 25px) rotate(-10deg);
+          }
+          75% {
+            transform: translate(25px, 15px) rotate(5deg);
+          }
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+        }
       `}</style>
     </section>
   );
