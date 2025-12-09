@@ -24,6 +24,7 @@ export function Header() {
 
   const navItems = [
     { name: "Sobre Nosotros", href: "#about" },
+    { name: "Estructura", href: "#org" },
     { name: "Servicios", href: "#services" },
     { name: "Alianza", href: "#partnerships" },
     { name: "Marcas", href: "#brands" },
