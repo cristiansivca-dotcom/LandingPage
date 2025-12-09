@@ -57,15 +57,26 @@ const ORG_STRUCTURE: OrgMember = {
 
 function OrgNode({ member }: { member: OrgMember }) {
   return (
-    <div className="flex flex-col items-center text-center p-4">
+    <div className="flex flex-col items-center text-center relative min-w-[220px] snap-center">
+      {/* Nodo principal */}
       <div className="bg-primary text-white rounded-lg shadow-lg px-4 py-2">
-        <h3 className="font-bold">{member.name}</h3>
-        <p className="text-sm opacity-80">{member.role}</p>
+        <h3 className="font-bold text-sm md:text-base">{member.name}</h3>
+        <p className="text-xs md:text-sm opacity-80">{member.role}</p>
       </div>
+
+      {/* Hijos */}
       {member.children && (
-        <div className="mt-4 flex flex-wrap justify-center gap-6">
+        <div className="mt-6 flex gap-6 justify-center relative">
+          {/* Línea vertical hacia hijos */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-6 bg-primary" />
           {member.children.map((child, i) => (
-            <OrgNode key={i} member={child} />
+            <div key={i} className="flex flex-col items-center">
+              {/* Línea horizontal entre hermanos */}
+              <div className="w-full flex justify-center relative mb-2">
+                <div className="absolute top-0 left-0 right-0 h-px bg-primary" />
+              </div>
+              <OrgNode member={child} />
+            </div>
           ))}
         </div>
       )}
@@ -86,8 +97,12 @@ export function OrgChart() {
             área de servicio.
           </p>
         </div>
-        <div className="flex justify-center">
-          <OrgNode member={ORG_STRUCTURE} />
+
+        {/* Organigrama con scroll horizontal y padding */}
+        <div className="overflow-x-auto pb-6 px-12 snap-x snap-mandatory">
+          <div className="min-w-[1400px] flex justify-center gap-8">
+            <OrgNode member={ORG_STRUCTURE} />
+          </div>
         </div>
       </div>
     </section>
