@@ -5,6 +5,27 @@ import { caseStudies } from "@/data/case-studies.data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Carousel } from "@/components/Carousel";
 
+// 🔧 Función para transformar @usuario en link a Instagram
+function parseInstagramLinks(text: string) {
+  const regex = /@([a-zA-Z0-9._]+)/g; // detecta @usuario
+  return text.split(regex).map((part, i) => {
+    if (i % 2 === 1) {
+      return (
+        <a
+          key={i}
+          href={`https://instagram.com/${part}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          @{part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 export function CaseStudies() {
   return (
     <section id="case-studies" className="py-16 md:py-24 bg-card">
@@ -41,7 +62,7 @@ export function CaseStudies() {
                   {study.title}
                 </h3>
                 <p className="text-base text-muted-foreground text-center">
-                  {study.description}
+                  {parseInstagramLinks(study.description)}
                 </p>
               </div>
             );
