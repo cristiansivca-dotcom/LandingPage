@@ -4,6 +4,7 @@ import { About } from "@/components/landing/about";
 import { Services } from "@/components/landing/services";
 import { Partnership } from "@/components/landing/partnership";
 import { Brands } from "@/components/landing/brands";
+import { Partners } from "@/components/landing/Partners";
 import { CaseStudies } from "@/components/landing/case-studies";
 //import { FAQ } from "@/components/landing/faq";
 import { Contact } from "@/components/landing/contact";
@@ -22,6 +23,7 @@ export default function Home() {
         <Services />
         <Partnership />
         <Brands />
+        <Partners />
         <CaseStudies />
         {/* <FAQ /> */}
         <Contact />
