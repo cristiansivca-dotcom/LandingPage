@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Truck, Hammer, Wrench, Megaphone, CalendarDays } from "lucide-react";
 
-
 type ServiceItem = {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
@@ -52,7 +51,6 @@ const SERVICES: ServiceItem[] = [
 export function Services() {
   return (
     <section id="services" className="py-16 md:py-24 bg-background">
-    
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">
@@ -95,7 +93,7 @@ function ServiceCard({ icon: Icon, title, description, back }: ServiceItem) {
   if (!mounted) return null; // Evita el render en SSR
 
   return (
-    <div ref={cardRef} className="relative h-72 w-full perspective">
+    <div ref={cardRef} className="relative w-full perspective min-h-[18rem]">
       <div
         className={`flip-card-inner w-full h-full transition-transform duration-700 ease-in-out ${
           isFlipped ? "rotate-y-180" : ""
@@ -103,35 +101,44 @@ function ServiceCard({ icon: Icon, title, description, back }: ServiceItem) {
       >
         {/* Cara frontal */}
         <div
-          className="flip-card-front absolute inset-0 bg-white rounded-xl shadow-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
+          className="flip-card-front absolute inset-0 bg-white rounded-xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
           onClick={() => setIsFlipped(true)}
         >
           <div className="bg-primary text-primary-foreground rounded-full p-5 mb-6 shadow-lg ring-4 ring-primary/20">
-            <Icon className="h-12 w-12" />
+            <Icon className="h-10 w-10 md:h-12 md:w-12" />
           </div>
-          <h3 className="font-headline text-2xl font-bold text-primary">
+          <h3 className="font-headline text-xl md:text-2xl font-bold text-primary">
             {title}
           </h3>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-xs md:text-sm text-muted-foreground">
             Descubre más sobre este servicio
           </p>
-          <button className="mt-6 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition">
+          <button className="mt-6 px-4 py-2 text-xs md:text-sm font-medium text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition">
             Más información
           </button>
         </div>
+
         {/* Cara trasera */}
         <div
-          className="flip-card-back absolute inset-0 bg-primary text-white rounded-xl shadow-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
+          className="flip-card-back absolute inset-0 bg-primary text-white rounded-xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
           onClick={() => setIsFlipped(false)}
         >
-        <Icon className="h-16 w-16 mb-4 text-white drop-shadow-lg" />
-          <p className="text-lg leading-relaxed font-medium">{description}</p>
-          {back && <span className="mt-4 text-sm font-semibold">{back}</span>}
-          <button className="mt-6 px-4 py-2 text-sm font-medium border border-white rounded-full hover:bg-white hover:text-primary transition">
+          <Icon className="h-12 w-12 md:h-16 md:w-16 mb-4 text-white drop-shadow-lg" />
+          <p className="text-sm md:text-lg leading-relaxed font-medium">
+            {description}
+          </p>
+          {back && (
+            <span className="mt-4 text-xs md:text-sm font-semibold">
+              {back}
+            </span>
+          )}
+          <button className="mt-6 px-4 py-2 text-xs md:text-sm font-medium border border-white rounded-full hover:bg-white hover:text-primary transition">
             Volver
           </button>
         </div>
       </div>
+
+      {/* Estilos flip */}
       <style jsx>{`
         .perspective {
           perspective: 1200px;
