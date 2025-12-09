@@ -63,21 +63,6 @@ export function Hero() {
           Excelencia y Calidad de Servicios
         </p>
 
-        {/* Texto descriptivo */}
-        <p
-          className="mt-4 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-2 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-400"
-          style={{ textShadow: "1px 1px 4px rgba(0,0,0,0.5)" }}
-        >
-          Expertos en{" "}
-          <span className="text-accent font-semibold">logística</span>,{" "}
-          <span className="text-accent font-semibold">construcción</span>,{" "}
-          <span className="text-accent font-semibold">publicidad</span> y{" "}
-          <span className="text-accent font-semibold">
-            organización de eventos
-          </span>
-          . Nuestro compromiso es superar expectativas y aportar al crecimiento
-          del país.
-        </p>
 
         {/* Botones CTA */}
         <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 w-full animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
