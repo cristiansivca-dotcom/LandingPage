@@ -29,11 +29,9 @@ export function Schedule() {
               Lunes a Viernes
             </h3>
             <p className="text-lg text-muted-foreground font-medium">
-              8:00 AM - 12:00 PM
+              Sabemos Cuando Entramos  - Pero Más Importante A Qué Hora Salimos?
             </p>
-            <p className="text-lg text-muted-foreground font-medium">
-              1:00 PM - 5:00 PM
-            </p>
+            
           </div>
 
           {/* Sábados, Domingos y Feriados */}

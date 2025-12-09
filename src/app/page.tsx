@@ -9,6 +9,7 @@ import { CaseStudies } from "@/components/landing/case-studies";
 import { Contact } from "@/components/landing/contact";
 import { Footer } from "@/components/landing/footer";
 import { Schedule } from "@/components/landing/times";
+import { OrgChart } from "@/components/landing/estructura";
 
 export default function Home() {
   return (
@@ -17,11 +18,12 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <About />
+        <OrgChart />
         <Services />
         <Partnership />
         <Brands />
         <CaseStudies />
-       {/* <FAQ /> */}
+        {/* <FAQ /> */}
         <Contact />
         <Schedule />
       </main>
