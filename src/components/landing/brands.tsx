@@ -232,7 +232,7 @@ export function Brands() {
             Marcas que Impulsamos
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Como socios estratégicos de Empresas Polar, tenemos el orgullo de
+            Como aliados estratégicos de Empresas Polar, tenemos el orgullo de
             potenciar la publicidad y comunicación de su icónico portafolio de
             marcas.
           </p>

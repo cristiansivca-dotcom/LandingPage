@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { Carousel } from "@/components/Carousel"; // tu carrusel reutilizable
 
 type TeamMember = {
   name: string;
@@ -37,6 +38,8 @@ const TEAM: TeamMember[] = [
 ];
 
 export function Team() {
+  const [autoplay, setAutoplay] = useState(true);
+
   return (
     <section id="team" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -49,9 +52,30 @@ export function Team() {
             excelencia y la innovación.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        {/* Carrusel en móvil */}
+        <div className="block md:hidden">
+          <Carousel step={300} interval={2500} autoplay={autoplay}>
+            {TEAM.map((member) => (
+              <TeamCard
+                key={member.name}
+                {...member}
+                onFlipOpen={() => setAutoplay(false)}
+                onFlipClose={() => setAutoplay(true)}
+              />
+            ))}
+          </Carousel>
+        </div>
+
+        {/* Grid en desktop */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {TEAM.map((member) => (
-            <TeamCard key={member.name} {...member} />
+            <TeamCard
+              key={member.name}
+              {...member}
+              onFlipOpen={() => setAutoplay(false)}
+              onFlipClose={() => setAutoplay(true)}
+            />
           ))}
         </div>
       </div>
@@ -59,7 +83,14 @@ export function Team() {
   );
 }
 
-function TeamCard({ name, role, photo, back }: TeamMember) {
+function TeamCard({
+  name,
+  role,
+  photo,
+  back,
+  onFlipOpen,
+  onFlipClose,
+}: TeamMember & { onFlipOpen?: () => void; onFlipClose?: () => void }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -67,16 +98,20 @@ function TeamCard({ name, role, photo, back }: TeamMember) {
     function handleClickOutside(event: MouseEvent) {
       if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
         setIsFlipped(false);
+        onFlipClose?.();
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [onFlipClose]);
 
   return (
-    <div ref={cardRef} className="relative w-full perspective min-h-[20rem]">
+    <div
+      ref={cardRef}
+      className="relative w-72 h-72 perspective flex-shrink-0 snap-center"
+    >
       <div
         className={`flip-card-inner w-full h-full transition-transform duration-700 ease-in-out ${
           isFlipped ? "rotate-y-180" : ""
@@ -85,7 +120,10 @@ function TeamCard({ name, role, photo, back }: TeamMember) {
         {/* Cara frontal */}
         <div
           className="flip-card-front absolute inset-0 bg-white rounded-xl shadow-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-          onClick={() => setIsFlipped(true)}
+          onClick={() => {
+            setIsFlipped(true);
+            onFlipOpen?.();
+          }}
         >
           <img
             src={photo}
@@ -99,10 +137,7 @@ function TeamCard({ name, role, photo, back }: TeamMember) {
         </div>
 
         {/* Cara trasera */}
-        <div
-          className="flip-card-back absolute inset-0 bg-primary text-white rounded-xl shadow-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-          onClick={() => setIsFlipped(false)}
-        >
+        <div className="flip-card-back absolute inset-0 bg-primary text-white rounded-xl shadow-xl p-6 flex flex-col items-center justify-center text-center transition-transform duration-300 hover:scale-105">
           <img
             src={photo}
             alt={name}
