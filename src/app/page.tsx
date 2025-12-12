@@ -11,6 +11,7 @@ import { Contact } from "@/components/landing/contact";
 import { Footer } from "@/components/landing/footer";
 import { Schedule } from "@/components/landing/times";
 import { OrgChart } from "@/components/landing/estructura";
+import { Team } from "@/components/landing/team";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <About />
         <OrgChart />
+        <Team />
         <Services />
         <Partnership />
         <Brands />
