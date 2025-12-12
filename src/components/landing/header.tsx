@@ -28,7 +28,7 @@ export function Header() {
     { name: "Equipo", href: "#team" },
     { name: "Servicios", href: "#services" },
     { name: "Alianza", href: "#partnerships" },
-    { name: "Socios", href: "#partners" },
+    //{ name: "Socios", href: "#partners" },
     { name: "Marcas", href: "#brands" },
     { name: "Casos de Éxito", href: "#case-studies" },
     //{ name: 'FAQ', href: '#faq' },

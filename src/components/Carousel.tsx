@@ -6,21 +6,23 @@ interface CarouselProps {
   children: React.ReactNode;
   step?: number; // píxeles a mover
   interval?: number; // tiempo en ms
+  autoplay?: boolean; // nuevo: controlar si se mueve solo o no
 }
 
 export function Carousel({
   children,
   step = 320,
   interval = 2500,
+  autoplay = true, // por defecto activo
 }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = carouselRef.current;
-    if (!container) return;
+    if (!container || !autoplay) return; // si autoplay=false, no inicia
 
     let scrollAmount = 0;
-    const autoplay = setInterval(() => {
+    const autoScroll = setInterval(() => {
       if (container) {
         if (scrollAmount + container.clientWidth >= container.scrollWidth) {
           scrollAmount = 0;
@@ -31,8 +33,8 @@ export function Carousel({
       }
     }, interval);
 
-    return () => clearInterval(autoplay);
-  }, [step, interval]);
+    return () => clearInterval(autoScroll);
+  }, [step, interval, autoplay]); // dependencias incluyen autoplay
 
   return (
     <div
