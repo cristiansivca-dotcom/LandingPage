@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Truck, Hammer, Megaphone, Wrench } from "lucide-react";
 
 export function Hero() {
+  
   return (
     <section
       id="home"
