@@ -21,7 +21,7 @@ export function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover animate-pulse"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/hero1.mp4" type="video/mp4" />
         Tu navegador no soporta video en HTML5.
       </video>
 
