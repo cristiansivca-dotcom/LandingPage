@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/image/hero.svg";
 import { Truck, Hammer, Megaphone, Wrench } from "lucide-react";
 
 export function Hero() {
@@ -13,14 +12,18 @@ export function Hero() {
       id="home"
       className="relative min-h-[80vh] md:min-h-screen w-full flex items-center justify-center text-center text-white overflow-hidden"
     >
-      {/* Imagen de fondo */}
-      <Image
-        src={hero}
-        alt="Hero background"
-        fill
-        className="object-cover animate-pulse"
-        priority
-      />
+      {/* Video de fondo */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover animate-pulse"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+        Tu navegador no soporta video en HTML5.
+      </video>
+
 
       {/* Overlay degradado animado */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-primary/40 to-black/80 animate-gradient-x" />
