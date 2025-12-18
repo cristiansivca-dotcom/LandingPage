@@ -123,7 +123,6 @@ function ServiceCard({ icon: Icon, title, description, back }: ServiceItem) {
           className="flip-card-back absolute inset-0 bg-primary text-white rounded-xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-transform duration-300 hover:scale-105"
           onClick={() => setIsFlipped(false)}
         >
-          <Icon className="h-12 w-12 md:h-16 md:w-16 mb-4 text-white drop-shadow-lg" />
           <p className="text-sm md:text-lg leading-relaxed font-medium">
             {description}
           </p>
@@ -132,9 +131,6 @@ function ServiceCard({ icon: Icon, title, description, back }: ServiceItem) {
               {back}
             </span>
           )}
-          <button className="mt-6 px-4 py-2 text-xs md:text-sm font-medium border border-white rounded-full hover:bg-white hover:text-primary transition">
-            Volver
-          </button>
         </div>
       </div>
 
