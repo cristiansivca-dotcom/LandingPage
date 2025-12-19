@@ -100,7 +100,7 @@ export function Contact() {
                 </div>
                 <div className="my-4 rounded-lg overflow-hidden shadow-lg border border-accent/30">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d300.77115036467615!2d-69.66687014329209!3d11.409013337517528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sus!4v1764878555947!5m2!1ses!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d425.35443103932374!2d-69.66648309004644!3d11.40915282911713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e842bff2cdf931b%3A0x6d7ff321d2d8a826!2sServicios%20Integrales%20de%20Venezuela%20(SIVCA)!5e1!3m2!1ses!2sve!4v1766152676712!5m2!1ses!2sve"
                     width="100%"
                     height="220"
                     style={{ border: 0 }}

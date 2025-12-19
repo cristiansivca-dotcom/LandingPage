@@ -73,19 +73,19 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Mail size={16} />
-                <a href="mailto:info@sivca.com" className="hover:text-accent">
-                  info@sivca.com
+                <a href="mailto:admin.sivca@gmail.com" className="hover:text-accent">
+                  admin.sivca@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <a href="tel:+582123456789" className="hover:text-accent">
-                  +58 212-3456789
+                <a href="tel:+584121259744" className="hover:text-accent">
+                  +58 (412) 125-9744
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>Caracas, Venezuela</span>
+                <span>Falcon, Venezuela</span>
               </li>
             </ul>
           </div>
