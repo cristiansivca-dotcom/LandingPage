@@ -57,6 +57,14 @@ const SERVICES: ServiceItem[] = [
 ];
 
 export function Services() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Prevent SSR mismatch for Dialog IDs
+
   return (
     <section id="services" className="py-24 md:py-40 bg-background relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(var(--primary),0.03)_0%,transparent_70%)] pointer-events-none" />
@@ -135,7 +143,14 @@ export function Services() {
                     Listos para servirte
                   </div>
                   <div className="flex gap-4 w-full sm:w-auto">
-                    <button className="flex-grow sm:flex-grow-0 px-8 h-14 bg-primary text-white rounded-full font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+                    <button
+                      onClick={() => {
+                        const message = `Hola, me gustaría solicitar una cotización y obtener más información sobre el servicio de: *${item.title}*.`;
+                        const url = `https://wa.me/584121259744?text=${encodeURIComponent(message)}`;
+                        window.open(url, "_blank");
+                      }}
+                      className="flex-grow sm:flex-grow-0 px-8 h-14 bg-primary text-white rounded-full font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2"
+                    >
                       Cotizar <ArrowRight className="w-5 h-5" />
                     </button>
                   </div>

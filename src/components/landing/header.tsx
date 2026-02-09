@@ -11,8 +11,10 @@ import logoSivca from "@/assets/image/logo_sivca.png";
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -94,48 +96,50 @@ export function Header() {
         </div>
 
         <div className="md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'text-primary' : 'text-white')}>
-                <Menu className="h-7 w-7" />
-                <span className="sr-only">Abrir menú</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[85%] sm:w-[400px] border-l border-white/10 bg-background/95 backdrop-blur-2xl px-8">
-              <SheetTitle className="sr-only">Menú principal</SheetTitle>
-              <div className="flex flex-col h-full py-10">
-                <div className="flex justify-between items-center mb-12">
-                  <Link href="/" className="transition-transform hover:scale-105">
-                    <Image src={logoSivca} alt="SIVCA Logo" width={80} height={80} className="object-contain" />
-                  </Link>
-                  <SheetClose asChild>
-                    <Button variant="ghost" size="icon" className="hover:bg-white/5">
-                      <X className="h-7 w-7" />
-                    </Button>
-                  </SheetClose>
-                </div>
-                <nav className="flex flex-col space-y-6">
-                  {navItems.map((item) => (
-                    <SheetClose asChild key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-2xl font-bold tracking-tight transition-colors hover:text-primary text-foreground"
-                      >
-                        {item.name}
-                      </Link>
+          {mounted && (
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className={cn(isScrolled ? 'text-primary' : 'text-white')}>
+                  <Menu className="h-7 w-7" />
+                  <span className="sr-only">Abrir menú</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[85%] sm:w-[400px] border-l border-white/10 bg-background/95 backdrop-blur-2xl px-8">
+                <SheetTitle className="sr-only">Menú principal</SheetTitle>
+                <div className="flex flex-col h-full py-10">
+                  <div className="flex justify-between items-center mb-12">
+                    <Link href="/" className="transition-transform hover:scale-105">
+                      <Image src={logoSivca} alt="SIVCA Logo" width={80} height={80} className="object-contain" />
+                    </Link>
+                    <SheetClose asChild>
+                      <Button variant="ghost" size="icon" className="hover:bg-white/5">
+                        <X className="h-7 w-7" />
+                      </Button>
                     </SheetClose>
-                  ))}
-                </nav>
-                <div className="mt-auto">
-                  <SheetClose asChild>
-                    <Button asChild size="lg" className="w-full bg-primary text-primary-foreground rounded-xl text-lg h-16 shadow-xl">
-                      <Link href="#contact">Hablemos ahora</Link>
-                    </Button>
-                  </SheetClose>
+                  </div>
+                  <nav className="flex flex-col space-y-6">
+                    {navItems.map((item) => (
+                      <SheetClose asChild key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="text-2xl font-bold tracking-tight transition-colors hover:text-primary text-foreground"
+                        >
+                          {item.name}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+                  <div className="mt-auto">
+                    <SheetClose asChild>
+                      <Button asChild size="lg" className="w-full bg-primary text-primary-foreground rounded-xl text-lg h-16 shadow-xl">
+                        <Link href="#contact">Hablemos ahora</Link>
+                      </Button>
+                    </SheetClose>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </header>
