@@ -221,61 +221,73 @@ export function Brands() {
   const [selectedTab, setSelectedTab] = React.useState(categories[0].name);
 
   return (
-    <section
-      id="brands"
-      className="relative py-16 md:py-24 bg-card overflow-hidden"
-    >
+    <section id="brands" className="py-24 md:py-40 bg-card/20 relative overflow-hidden">
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_0%,rgba(var(--primary),0.03)_0%,transparent_50%)] pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">
-            Marcas que Impulsamos
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center mb-20 space-y-6 animate-reveal">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
+            Alianzas Estratégicas
+          </div>
+          <h2 className="font-headline text-5xl md:text-7xl font-black text-foreground leading-[1] tracking-tighter">
+            MARCAS QUE <span className="text-primary italic">IMPULSAMOS</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Como aliados estratégicos de Empresas Polar, tenemos el orgullo de
-            potenciar la publicidad y comunicación de su icónico portafolio de
-            marcas.
+          <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
+            Como aliados estratégicos de Empresas Polar, potenciamos la
+            comunicación de su icónico portafolio a nivel nacional.
           </p>
         </div>
 
         <Tabs
           value={selectedTab}
           onValueChange={setSelectedTab}
-          className="w-full max-w-6xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200"
+          className="w-full max-w-7xl mx-auto"
         >
-          <div className="relative overflow-x-auto no-scrollbar pb-1">
-            <TabsList className="relative inline-flex h-auto justify-start bg-transparent p-0 border-b-2 border-border">
-              {categories.map((category) => (
-                <TabsTrigger
-                  key={category.name}
-                  value={category.name}
-                  className="relative h-10 whitespace-nowrap rounded-none border-b-2 border-transparent bg-transparent px-4 text-base font-medium text-muted-foreground shadow-none transition-none focus-visible:ring-0 data-[state=active]:border-accent data-[state=active]:text-primary data-[state=active]:shadow-none"
-                >
-                  {category.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+          <div className="flex justify-center mb-16">
+            <div className="inline-flex p-2 bg-background/40 backdrop-blur-xl border border-white/5 rounded-[2rem] overflow-x-auto no-scrollbar max-w-full">
+              <TabsList className="bg-transparent h-auto gap-2">
+                {categories.map((category) => (
+                  <TabsTrigger
+                    key={category.name}
+                    value={category.name}
+                    className="px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-xl shadow-primary/20 hover:text-primary data-[state=active]:hover:text-white"
+                  >
+                    {category.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </div>
 
           {categories.map((category) => (
             <TabsContent
               key={category.name}
               value={category.name}
-              className="mt-0 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="mt-0 outline-none focus:ring-0"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 py-8 items-center animate-in fade-in-50 duration-300">
-                {category.brands.map((brand) => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-stretch animate-reveal">
+                {category.brands.map((brand, bIndex) => (
                   <div
                     key={brand.id}
-                    className="group relative flex justify-center items-center w-40 h-28 rounded-lg border bg-background/50 p-4 transition-all duration-300 hover:bg-background hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                    className="group relative aspect-square flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/5 rounded-[2rem] p-8 transition-all duration-500 hover:bg-white hover:border-white hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-2 animate-reveal"
+                    style={{ animationDelay: `${bIndex * 50}ms` }}
                   >
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={250}
-                      height={150}
-                      className="object-contain p-2 grayscale transition-all duration-300 group-hover:grayscale-0"
-                    />
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={brand.logo}
+                        alt={brand.name}
+                        fill
+                        className="object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+                      />
+                    </div>
+
+                    {/* Tooltip o nombre al hover */}
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:bottom-4 transition-all duration-300 pointer-events-none">
+                      <span className="px-3 py-1 bg-primary text-white text-[10px] font-black uppercase tracking-tighter rounded-full shadow-lg">
+                        {brand.name}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
