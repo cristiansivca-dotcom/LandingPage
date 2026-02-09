@@ -50,6 +50,7 @@ export function Footer() {
               {[
                 { href: "#about", label: "Sobre Nosotros" },
                 { href: "#services", label: "Servicios" },
+                { href: "https://catalogo.sivca.com.ve", label: "Catálogo" },
                 { href: "#case-studies", label: "Casos de Éxito" },
                 { href: "#contact", label: "Contacto" },
               ].map((item) => (

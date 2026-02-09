@@ -27,6 +27,7 @@ export function Header() {
     { name: "Estructura", href: "#org" },
     { name: "Equipo", href: "#team" },
     { name: "Servicios", href: "#services" },
+    { name: "Catálogo", href: "https://catalogo.sivca.com.ve" },
     { name: "Alianza", href: "#partnerships" },
     //{ name: "Socios", href: "#partners" },
     { name: "Marcas", href: "#brands" },
@@ -34,8 +35,8 @@ export function Header() {
     //{ name: 'FAQ', href: '#faq' },
     { name: "Horario", href: "#schedule" },
   ];
-  
-  
+
+
   const darkLogoUrl = logoSivca;
 
   return (
@@ -72,44 +73,44 @@ export function Header() {
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-               <Button variant="ghost" size="icon" className={cn(isScrolled ? 'text-primary' : 'text-primary-foreground')}>
+              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'text-primary' : 'text-primary-foreground')}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full bg-card">
-                <SheetTitle className="sr-only">Menú principal</SheetTitle>
-                <div className="flex flex-col h-full">
-                    <div className="flex justify-between items-center border-b pb-4">
-                         <Link href="/" className="flex items-center gap-2 font-headline text-2xl font-bold text-primary">
-                            <Image src={darkLogoUrl} alt="SIVCA Logo" width={90} height={60} className="object-contain h-20 w-auto" />
-                        </Link>
-                        {/* Solo este botón "X" para cerrar */}
-                        <SheetClose asChild>
-                             <Button variant="ghost" size="icon">
-                                <X className="h-6 w-6" />
-                                <span className="sr-only">Cerrar menú</span>
-                            </Button>
-                        </SheetClose>
-                    </div>
-                    <nav className="flex flex-col items-center gap-8 mt-16 flex-grow">
-                    {navItems.map((item) => (
-                        <SheetClose asChild key={item.name}>
-                        <Link
-                            href={item.href}
-                            className="text-2xl font-medium transition-colors hover:text-primary text-foreground"
-                        >
-                            {item.name}
-                        </Link>
-                        </SheetClose>
-                    ))}
-                    </nav>
-                    <SheetClose asChild>
-                        <Button asChild size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 mb-8">
-                            <Link href="#contact">Contáctanos</Link>
-                        </Button>
-                    </SheetClose>
+              <SheetTitle className="sr-only">Menú principal</SheetTitle>
+              <div className="flex flex-col h-full">
+                <div className="flex justify-between items-center border-b pb-4">
+                  <Link href="/" className="flex items-center gap-2 font-headline text-2xl font-bold text-primary">
+                    <Image src={darkLogoUrl} alt="SIVCA Logo" width={90} height={60} className="object-contain h-20 w-auto" />
+                  </Link>
+                  {/* Solo este botón "X" para cerrar */}
+                  <SheetClose asChild>
+                    <Button variant="ghost" size="icon">
+                      <X className="h-6 w-6" />
+                      <span className="sr-only">Cerrar menú</span>
+                    </Button>
+                  </SheetClose>
                 </div>
+                <nav className="flex flex-col items-center gap-8 mt-16 flex-grow">
+                  {navItems.map((item) => (
+                    <SheetClose asChild key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-2xl font-medium transition-colors hover:text-primary text-foreground"
+                      >
+                        {item.name}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <SheetClose asChild>
+                  <Button asChild size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 mb-8">
+                    <Link href="#contact">Contáctanos</Link>
+                  </Button>
+                </SheetClose>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
