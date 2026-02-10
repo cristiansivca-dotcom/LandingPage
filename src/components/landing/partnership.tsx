@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
-import { Carousel } from "@/components/Carousel"; // tu carrusel reutilizable
+import { Carousel } from "@/components/Carousel";
+import { Play, X } from "lucide-react";
 
 // Importa logos
 import logoPolar from "@/assets/image/logo_polar.webp";
@@ -26,153 +27,131 @@ function PartnerCard({
   onPlay,
   onStop,
 }: PartnerCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-        setIsFlipped(false);
-        onStop?.(); // reanuda carrusel
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [onStop]);
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
-    <div
-      ref={cardRef}
-      className="relative w-72 h-72 perspective flex-shrink-0 snap-center"
-    >
-      <div
-        className={`flip-card-inner w-full h-full transition-transform duration-700 ease-in-out ${
-          isFlipped ? "rotate-y-180" : ""
-        }`}
-      >
-        {/* Cara frontal */}
+    <div className="relative w-[320px] h-[320px] group flex-shrink-0 snap-center">
+      {/* Tarjeta de cristal */}
+      <div className="relative w-full h-full bg-card/30 backdrop-blur-xl border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-500 group-hover:border-primary/20 group-hover:-translate-y-2 group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center p-10">
+
+        {/* Logo y Nombre */}
+        <div className="relative z-10 flex flex-col items-center transition-all duration-500 group-hover:scale-95 group-hover:opacity-40">
+          <div className="relative w-32 h-32 flex items-center justify-center p-4 bg-white/5 rounded-[2rem] border border-white/5 mb-6 group-hover:bg-white transition-all duration-500">
+            <Image
+              src={logo}
+              alt={`Logo ${name}`}
+              className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+            />
+          </div>
+          <h3 className="font-headline text-xl font-black text-foreground tracking-tight">{name}</h3>
+          <p className="text-[10px] text-primary font-black uppercase tracking-[0.2em] mt-2">Aliado Estratégico</p>
+        </div>
+
+        {/* Overlay de Play */}
         <div
-          className="flip-card-front absolute inset-0 bg-white rounded-xl shadow-xl flex flex-col items-center justify-center cursor-pointer"
+          className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer"
           onClick={() => {
-            setIsFlipped(true);
-            onPlay?.(); // pausa carrusel
+            setIsPlaying(true);
+            onPlay?.();
           }}
         >
-          <Image src={logo} alt={`Logo ${name}`} width={120} height={120} />
-          <h3 className="mt-4 font-bold text-primary">{name}</h3>
-          <p className="text-sm text-muted-foreground">
-            Haz clic para ver video
-          </p>
+          <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center shadow-2xl shadow-primary/40 transform scale-50 group-hover:scale-100 transition-transform duration-500">
+            <Play className="w-8 h-8 fill-current ml-1" />
+          </div>
+          <span className="absolute bottom-10 text-[10px] font-black text-white uppercase tracking-[0.3em]">Ver Testimonio</span>
         </div>
 
-        {/* Cara trasera */}
-        <div className="flip-card-back absolute inset-0 bg-black rounded-xl shadow-xl flex items-center justify-center">
-          {/* Botón X */}
-          <button
-            onClick={() => {
-              setIsFlipped(false);
-              onStop?.(); // reanuda carrusel
-            }}
-            className="absolute top-2 right-2 text-white bg-red-600 hover:bg-red-700 rounded-full w-8 h-8 flex items-center justify-center shadow-lg"
-          >
-            ✕
-          </button>
-
-          <video
-            src={videoUrl}
-            controls
-            className="w-full h-full object-cover rounded-xl"
-            onPlay={onPlay}
-            onPause={onStop}
-            onEnded={onStop}
-          />
-        </div>
+        {/* Video Player Modal/Overlay */}
+        {isPlaying && (
+          <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-500">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsPlaying(false);
+                onStop?.();
+              }}
+              className="absolute top-10 right-10 z-[110] w-14 h-14 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all flex items-center justify-center"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div className="relative w-full max-w-5xl aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+              <video
+                src={videoUrl}
+                autoPlay
+                controls
+                className="w-full h-full object-cover"
+                onEnded={() => {
+                  setIsPlaying(false);
+                  onStop?.();
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* Estilos flip */}
-      <style jsx>{`
-        .perspective {
-          perspective: 1200px;
-        }
-        .flip-card-inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transform-style: preserve-3d;
-        }
-        .rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-        .flip-card-front,
-        .flip-card-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          backface-visibility: hidden;
-          border-radius: 0.75rem;
-        }
-        .flip-card-back {
-          transform: rotateY(180deg);
-        }
-      `}</style>
     </div>
   );
 }
 
 export function PartnershipsUnified() {
   const [autoplay, setAutoplay] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
-  const partners: PartnerCardProps[] = [
-    { logo: logoPolar, name: "Polar", videoUrl: "/videos/socio1.mp4" },
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const partners: Omit<PartnerCardProps, 'onPlay' | 'onStop'>[] = [
+    { logo: logoPolar, name: "Empresas Polar", videoUrl: "/videos/socio1.mp4" },
     { logo: logoInces, name: "INCES", videoUrl: "/videos/socio2.mp4" },
     { logo: logoIESV, name: "IESV", videoUrl: "/videos/socio3.mp4" },
     { logo: logoPETREX, name: "PETREX", videoUrl: "/videos/socio4.mp4" },
     { logo: logoMinagua, name: "Minaguas", videoUrl: "/videos/socio5.mp4" },
   ];
 
+  if (!mounted) return null;
+
   return (
-    <section id="partnerships" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">
-            Nuestros Aliados
+    <section id="partnerships" className="py-24 md:py-40 bg-background relative overflow-hidden">
+      {/* Fondo decorativo */}
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_0%,rgba(var(--primary),0.03)_0%,transparent_50%)] pointer-events-none" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center mb-24 space-y-6 animate-reveal">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
+            Ecosistema de Valor
+          </div>
+          <h2 className="font-headline text-5xl md:text-7xl font-black text-foreground leading-[1] tracking-tighter">
+            ALIANZAS <span className="text-primary italic">ESTRATÉGICAS</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Empresas y organizaciones que confían en SIVCA y colaboran en
-            nuestro crecimiento.
+          <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
+            Colaboramos con las instituciones y corporaciones más prestigiosas
+            para garantizar resultados que trascienden estándares.
           </p>
         </div>
 
-        {/* Carrusel en móvil */}
-        <div className="block md:hidden">
-          <Carousel step={300} interval={2500} autoplay={autoplay}>
+        {/* Carrusel Unificado (Móvil y Desktop si son muchos) */}
+        <div className="animate-reveal delay-300">
+          <Carousel step={350} interval={3000} autoplay={autoplay}>
             {partners.map((partner, i) => (
               <PartnerCard
                 key={i}
-                logo={partner.logo}
-                name={partner.name}
-                videoUrl={partner.videoUrl}
+                {...partner}
                 onPlay={() => setAutoplay(false)}
                 onStop={() => setAutoplay(true)}
               />
             ))}
           </Carousel>
         </div>
-
-        {/* Grid en desktop */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-          {partners.map((partner, i) => (
-            <PartnerCard
-              key={i}
-              logo={partner.logo}
-              name={partner.name}
-              videoUrl={partner.videoUrl}
-              onPlay={() => setAutoplay(false)}
-              onStop={() => setAutoplay(true)}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );
 }
+

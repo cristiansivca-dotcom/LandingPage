@@ -56,9 +56,9 @@ export function Hero() {
           <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">VENEZUELA</span>
         </h1>
 
-        <p className="mt-8 text-xl md:text-2xl font-medium text-white/70 max-w-2xl animate-reveal delay-200 leading-relaxed">
-          Fusionamos excelencia técnica con calidad excepcional <br className="hidden md:block" />
-          para impulsar el futuro de <span className="text-white border-b border-accent/50 pb-1">tu empresa</span>.
+        <p className="mt-8 text-xl md:text-2xl font-medium text-white/70 max-w-2xl animate-reveal delay-200 leading-relaxed text-center">
+          Excelencia y Calidad de <br className="hidden md:block" />
+          <span className="text-white border-b border-accent/50 pb-1">Servicios </span>
         </p>
 
         {/* CTAs */}
