@@ -14,9 +14,9 @@ type TeamMember = {
 
 const TEAM: TeamMember[] = [
   {
-    name: "Juan Pérez",
+    name: "Pedro Mohtar",
     role: "Director General",
-    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400",
+    photo: "/images/team/pedro.jpg",
     back: "Liderando con visión estratégica y compromiso inquebrantable.",
   },
   {
