@@ -63,13 +63,13 @@ export function Header() {
             )}
           />
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={cn(
-                'relative text-sm font-semibold tracking-wide uppercase transition-all duration-300 group',
+                'relative text-[10px] xl:text-xs font-black tracking-widest uppercase transition-all duration-300 group',
                 isScrolled ? 'text-foreground/80 hover:text-primary' : 'text-white/90 hover:text-white'
               )}
             >
@@ -81,11 +81,11 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <Button
             asChild
             className={cn(
-              "rounded-full px-8 transition-all duration-300 shadow-lg",
+              "rounded-full px-6 xl:px-8 text-xs xl:text-sm transition-all duration-300 shadow-lg",
               isScrolled
                 ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-primary/20"
                 : "bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white hover:text-primary"
@@ -95,7 +95,7 @@ export function Header() {
           </Button>
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           {mounted && (
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -108,9 +108,9 @@ export function Header() {
                 <SheetTitle className="sr-only">Menú principal</SheetTitle>
                 <div className="flex flex-col h-full py-10">
                   <div className="flex justify-between items-center mb-12">
-                    <Link href="/" className="transition-transform hover:scale-105">
-                      <Image src={logoSivca} alt="SIVCA Logo" width={80} height={80} className="object-contain" />
-                    </Link>
+                     <Link href="/" className="transition-transform hover:scale-105">
+                       <Image src={logoSivca} alt="SIVCA Logo" width={80} height={80} className="object-contain" />
+                     </Link>
                     <SheetClose asChild>
                       <Button variant="ghost" size="icon" className="hover:bg-white/5">
                         <X className="h-7 w-7" />
