@@ -31,7 +31,7 @@ function PartnerCard({
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="relative w-[340px] h-[400px] group flex-shrink-0">
+    <div className="relative w-[300px] sm:w-[340px] h-[400px] group flex-shrink-0">
       {/* Cinematic Card Container */}
       <div className={cn(
         "relative w-full h-full bg-white/[0.03] dark:bg-black/20 backdrop-blur-2xl border border-white/10 rounded-[3rem] overflow-hidden transition-all duration-700",
@@ -96,7 +96,7 @@ function PartnerCard({
                 setIsPlaying(false);
                 onStop?.();
               }}
-              className="absolute top-10 right-10 z-[110] w-16 h-16 rounded-full bg-white/10 hover:bg-primary text-white transition-all flex items-center justify-center border border-white/10 group/close"
+              className="absolute top-4 right-4 md:top-10 md:right-10 z-[110] w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 hover:bg-primary text-white transition-all flex items-center justify-center border border-white/10 group/close"
             >
               <X className="w-8 h-8 group-hover:scale-110 transition-transform" />
             </button>

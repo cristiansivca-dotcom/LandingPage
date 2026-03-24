@@ -49,10 +49,10 @@ export function Hero() {
         </div>
 
         <h1
-          className="font-headline text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white animate-reveal shadow-2xl"
+          className="font-headline text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[1.1] md:leading-[0.9] text-white animate-reveal shadow-2xl"
           style={{ textShadow: "0 20px 50px rgba(0,0,0,0.5)" }}
         >
-          SERVICIOS INTEGRALES DE <br />
+          SERVICIOS INTEGRALES DE <br className="hidden sm:block" />
           <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">VENEZUELA</span>
         </h1>
 
