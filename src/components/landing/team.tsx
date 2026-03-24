@@ -50,9 +50,6 @@ export function Team() {
 
   return (
     <section id="team" className="py-24 md:py-40 bg-background relative overflow-hidden">
-      {/* Elemento decorativo */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-20 space-y-6 animate-reveal">
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]">

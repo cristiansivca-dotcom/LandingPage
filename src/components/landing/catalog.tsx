@@ -8,10 +8,6 @@ import { Users, UserCheck, ArrowRight, ExternalLink, Sparkles } from "lucide-rea
 export function Catalog() {
   return (
     <section id="catalog" className="py-24 md:py-48 relative overflow-hidden bg-background">
-      {/* Elementos decorativos de fondo cinematicos */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="relative group">
@@ -26,23 +22,23 @@ export function Catalog() {
                 <div className="space-y-12 text-center lg:text-left">
                   <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-[0.3em]">
                     <Sparkles className="w-4 h-4" />
-                    <span>Booking & Management</span>
+                    <span>Activaciones & BTL</span>
                   </div>
 
                   <h2 className="font-headline text-4xl md:text-6xl font-black text-foreground leading-[0.9] tracking-tighter">
-                    CATÁLOGO DE <br />
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent italic">TALENTO</span>
+                    PROMOTORAS DE <br />
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent italic">MARCA</span>
                   </h2>
 
                   <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl font-medium">
-                    Explora nuestra selección exclusiva de promotoras y talentos.
-                    Perfiles profesionales validados para elevar el impacto de tu marca.
+                    Conecta con el perfil ideal para representar tu negocio.
+                    Modelos, promotoras y embajadoras de marca con imagen impecable y excelente proyección.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
                     <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-12 h-20 text-xl font-bold shadow-[0_20px_40px_rgba(var(--primary),0.3)] hover:scale-105 transition-all">
                       <Link href="https://catalogo.sivca.com.ve" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
-                        Explorar Talentos <ExternalLink className="w-7 h-7" />
+                        Ver Catálogo VIP <ExternalLink className="w-7 h-7" />
                       </Link>
                     </Button>
                     <Button asChild variant="ghost" size="lg" className="rounded-full px-12 h-20 text-xl font-bold border border-white/10 hover:bg-white/5 transition-all">
@@ -68,7 +64,7 @@ export function Catalog() {
                       </div>
 
                       <div className="space-y-4">
-                        <h4 className="font-black text-4xl text-foreground tracking-tight">TALENT SEARCH</h4>
+                        <h4 className="font-black text-4xl text-foreground tracking-tight leading-[0.9] pt-2">BRAND<br />AMBASSADORS</h4>
                         <p className="text-muted-foreground font-medium text-xl leading-snug">Seleccionando los mejores perfiles <br /> para tu próximo evento.</p>
                       </div>
 

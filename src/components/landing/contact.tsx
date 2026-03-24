@@ -69,10 +69,6 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 md:py-40 bg-background relative overflow-hidden">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-20 space-y-6 animate-reveal">
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]">

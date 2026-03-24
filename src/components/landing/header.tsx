@@ -30,7 +30,7 @@ export function Header() {
     { name: "Equipo", href: "#team" },
     { name: "Servicios", href: "#services" },
     { name: "Catálogo", href: "https://catalogo.sivca.com.ve" },
-    { name: "Alianza", href: "#partnerships" },
+    //{ name: "Alianza", href: "#partnerships" },
     //{ name: "Socios", href: "#partners" },
     { name: "Marcas", href: "#brands" },
     { name: "Casos de Éxito", href: "#case-studies" },

@@ -5,7 +5,7 @@ export function Schedule() {
   return (
     <section
       id="schedule"
-      className="relative py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 overflow-hidden"
+      className="relative py-20 bg-background overflow-hidden"
     >
     
       <div className="relative z-10 container mx-auto px-4 md:px-6">

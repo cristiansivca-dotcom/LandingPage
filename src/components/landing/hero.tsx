@@ -31,16 +31,6 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 z-1 blend-overlay" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-1" />
 
-      {/* Elementos Decorativos Flotantes (Sutiles) */}
-      <div className="absolute inset-0 pointer-events-none z-2 overflow-hidden">
-        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-accent/10 rounded-full blur-[150px]" />
-
-        <Truck className="absolute top-20 left-[10%] text-white/10 h-16 w-16 animate-float opacity-30" />
-        <Hammer className="absolute bottom-32 right-[15%] text-white/10 h-14 w-14 animate-float opacity-20 delay-1000" />
-        <Wrench className="absolute top-1/3 right-[10%] text-white/10 h-12 w-12 animate-float opacity-25 delay-500" />
-      </div>
-
       {/* Contenido Principal */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center justify-center pt-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/80 text-xs font-bold uppercase tracking-[0.2em] mb-8 animate-reveal">

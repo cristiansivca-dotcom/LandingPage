@@ -68,12 +68,6 @@ export function Services() {
 
   return (
     <section id="services" className="py-32 md:py-48 bg-background relative overflow-hidden">
-      {/* Background Cinematic Decorations */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_100%_0%,rgba(var(--primary),0.03)_0%,transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_0%_100%,rgba(var(--accent),0.02)_0%,transparent_70%)]" />
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-28 space-y-8 animate-reveal">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.4em] shadow-inner">
@@ -106,7 +100,7 @@ export function Services() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 bg-primary blend-overlay" />
 
                   {/* Icon Area */}
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center text-white bg-primary/10 border border-primary/20 transition-all duration-500 group-hover:bg-primary group-hover:scale-105 group-hover:shadow-lg shadow-primary/20">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center text-primary dark:text-white bg-primary/10 border border-primary/20 transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:scale-105 group-hover:shadow-lg shadow-primary/20">
                     <item.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
 
@@ -118,9 +112,9 @@ export function Services() {
                       {item.description}
                     </p>
 
-                    <div className="pt-6 mt-6 border-t border-white/5 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-                        <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+                    <div className="pt-6 mt-6 border-t border-black/5 dark:border-white/5 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/5 dark:bg-white/5 border border-primary/10 dark:border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                        <ArrowRight className="w-4 h-4 text-primary dark:text-white group-hover:text-white group-hover:translate-x-0.5 transition-transform" />
                       </div>
                       <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground">Saber más</span>
                     </div>
@@ -128,34 +122,34 @@ export function Services() {
                 </div>
               </DialogTrigger>
 
-              <DialogContent className="w-[95vw] sm:max-w-2xl border border-white/10 bg-zinc-950/95 backdrop-blur-2xl rounded-3xl p-6 md:p-12 overflow-y-auto overflow-x-hidden max-h-[90vh] shadow-2xl">
+              <DialogContent className="w-[95vw] sm:max-w-2xl border border-border bg-background/95 backdrop-blur-2xl rounded-3xl p-6 md:p-12 overflow-y-auto overflow-x-hidden max-h-[90vh] shadow-2xl">
                 <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
                 <DialogHeader className="relative z-10 text-left space-y-8 mt-4 md:mt-0">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center text-white shadow-lg bg-primary/20 border border-primary/30">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center shadow-lg bg-primary/10 border border-primary/20">
                     <item.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
                   </div>
 
                   <div className="space-y-4">
-                    <DialogTitle className="font-headline text-3xl md:text-5xl font-black text-white leading-tight tracking-tighter">
+                    <DialogTitle className="font-headline text-3xl md:text-5xl font-black text-foreground leading-tight tracking-tighter">
                       {item.title}
                     </DialogTitle>
-                    <DialogDescription className="text-lg md:text-xl text-white/70 font-medium leading-relaxed">
+                    <DialogDescription className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed">
                       {item.description}
                     </DialogDescription>
                   </div>
 
                   {item.back && (
-                    <div className="relative p-6 md:p-8 rounded-2xl bg-white/5 border border-white/5 flex items-start gap-4">
+                    <div className="relative p-6 md:p-8 rounded-2xl bg-primary/5 border border-primary/10 flex items-start gap-4">
                       <Trophy className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p className="text-white/80 text-sm md:text-base italic leading-relaxed font-medium">
+                      <p className="text-foreground/80 text-sm md:text-base italic leading-relaxed font-medium">
                         "{item.back}"
                       </p>
                     </div>
                   )}
                 </DialogHeader>
 
-                <div className="relative z-10 mt-8 md:mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-6 items-center justify-between">
+                <div className="relative z-10 mt-8 md:mt-12 pt-8 border-t border-border flex flex-col sm:flex-row gap-6 items-center justify-between">
                   <div className="flex flex-col gap-1 items-center sm:items-start w-full sm:w-auto text-center sm:text-left">
                     <div className="flex items-center gap-2 text-primary text-[10px] md:text-xs font-black uppercase tracking-widest">
                       <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
