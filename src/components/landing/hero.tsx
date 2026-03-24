@@ -33,8 +33,8 @@ export function Hero() {
 
       {/* Elementos Decorativos Flotantes (Sutiles) */}
       <div className="absolute inset-0 pointer-events-none z-2 overflow-hidden">
-        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-accent/10 rounded-full blur-[150px] animate-pulse delay-700" />
+        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-accent/10 rounded-full blur-[150px]" />
 
         <Truck className="absolute top-20 left-[10%] text-white/10 h-16 w-16 animate-float opacity-30" />
         <Hammer className="absolute bottom-32 right-[15%] text-white/10 h-14 w-14 animate-float opacity-20 delay-1000" />

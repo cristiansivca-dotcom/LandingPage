@@ -59,7 +59,7 @@ export function About() {
             </div>
 
             {/* Experience Floating Badge */}
-            <div className="absolute -bottom-4 -right-4 md:-bottom-12 md:-right-12 p-6 md:p-10 bg-white dark:bg-black/40 backdrop-blur-3xl border border-white/20 rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.2)] z-2 animate-bounce-slow">
+            <div className="absolute -bottom-4 -right-4 md:-bottom-12 md:-right-12 p-6 md:p-10 bg-white dark:bg-black/40 backdrop-blur-3xl border border-white/20 rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.2)] z-2">
               <div className="flex flex-col items-center text-center">
                 <span className="text-5xl font-black text-primary leading-none">7+</span>
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground mt-2">Años de</span>

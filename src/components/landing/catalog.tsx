@@ -87,8 +87,8 @@ export function Catalog() {
                   </div>
 
                   {/* Elementos flotantes extra */}
-                  <div className="absolute -top-12 -right-12 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-                  <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-primary/20 rounded-full blur-[100px] animate-pulse delay-700" />
+                  <div className="absolute -top-12 -right-12 w-40 h-40 bg-accent/20 rounded-full blur-3xl" />
+                  <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-primary/20 rounded-full blur-[100px]" />
                 </div>
               </div>
             </div>

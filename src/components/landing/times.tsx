@@ -24,7 +24,7 @@ export function Schedule() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Lunes a Viernes */}
           <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl p-10 text-center group hover:-translate-y-3 hover:shadow-2xl transition-all duration-500 border-t-4 border-primary">
-            <Clock className="w-14 h-14 mx-auto mb-6 text-primary group-hover:text-accent animate-bounce transition-colors duration-300" />
+            <Clock className="w-14 h-14 mx-auto mb-6 text-primary group-hover:text-accent group-hover:animate-bounce transition-colors duration-300" />
             <h3 className="text-2xl font-semibold text-primary mb-4">
               Lunes a Viernes
             </h3>
@@ -38,7 +38,7 @@ export function Schedule() {
 
           {/* Sábados, Domingos y Feriados */}
           <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl p-10 text-center group hover:-translate-y-3 hover:shadow-2xl transition-all duration-500 border-t-4 border-accent">
-            <Clock className="w-14 h-14 mx-auto mb-6 text-accent group-hover:text-primary animate-pulse transition-colors duration-300" />
+            <Clock className="w-14 h-14 mx-auto mb-6 text-accent group-hover:text-primary group-hover:animate-pulse transition-colors duration-300" />
             <h3 className="text-2xl font-semibold text-accent mb-4">
               Sábados, Domingos y Feriados
             </h3>

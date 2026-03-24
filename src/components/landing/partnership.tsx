@@ -76,12 +76,12 @@ function PartnerCard({
           }}
         >
           <div className="relative">
-            <div className="absolute -inset-8 bg-primary/40 rounded-full blur-2xl animate-pulse" />
+            <div className="absolute -inset-8 bg-primary/40 rounded-full blur-2xl" />
             <div className="relative w-24 h-24 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_0_50px_rgba(var(--primary),0.5)] transform scale-50 group-hover:scale-100 transition-transform duration-500 hover:scale-110 active:scale-95">
               <Play className="w-10 h-10 fill-current ml-1" />
             </div>
           </div>
-          <div className="absolute bottom-12 flex flex-col items-center gap-2 animate-bounce">
+          <div className="absolute bottom-12 flex flex-col items-center gap-2">
             <span className="text-[10px] font-black text-white uppercase tracking-[0.4em] drop-shadow-lg">Testimonio Éxito</span>
             <div className="w-1 h-8 bg-gradient-to-b from-primary to-transparent" />
           </div>
