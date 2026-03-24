@@ -29,7 +29,7 @@ export function Catalog() {
                     <span>Booking & Management</span>
                   </div>
 
-                  <h2 className="font-headline text-5xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
+                  <h2 className="font-headline text-4xl md:text-6xl font-black text-foreground leading-[0.9] tracking-tighter">
                     CATÁLOGO DE <br />
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent italic">TALENTO</span>
                   </h2>

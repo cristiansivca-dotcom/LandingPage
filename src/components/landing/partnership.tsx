@@ -162,7 +162,7 @@ export function PartnershipsUnified() {
             Ecosistema de Valor
           </div>
 
-          <h2 className="font-headline text-5xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter uppercase">
+          <h2 className="font-headline text-4xl md:text-6xl font-black text-foreground leading-[0.9] tracking-tighter uppercase">
             ALIANZAS <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent italic px-1">ESTRATÉGICAS</span>
           </h2>

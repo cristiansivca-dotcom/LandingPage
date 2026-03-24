@@ -58,7 +58,7 @@ export function Team() {
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
             Capital Humano
           </div>
-          <h2 className="font-headline text-5xl md:text-7xl font-black text-foreground leading-[1] tracking-tighter">
+          <h2 className="font-headline text-4xl md:text-6xl font-black text-foreground leading-[1] tracking-tighter">
             LIDERAZGO <span className="text-primary italic">PROFESIONAL</span>
           </h2>
           <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">

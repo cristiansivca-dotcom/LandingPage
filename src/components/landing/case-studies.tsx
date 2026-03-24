@@ -62,7 +62,7 @@ export function CaseStudies() {
               <Sparkles className="w-3 h-3" />
               Impacto Real
             </div>
-            <h2 className="font-headline text-5xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter">
+            <h2 className="font-headline text-4xl md:text-6xl font-black text-foreground leading-[0.9] tracking-tighter">
               CASOS DE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/50 italic px-1">ÉXITO</span>
             </h2>

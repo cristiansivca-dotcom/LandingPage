@@ -188,7 +188,7 @@ export function OrgChart() {
             <Crown className="w-3 h-3" />
             Gobierno Corporativo
           </div>
-          <h2 className="font-headline text-5xl md:text-8xl font-black text-foreground leading-[0.9] tracking-tighter uppercase">
+          <h2 className="font-headline text-4xl md:text-6xl font-black text-foreground leading-[0.9] tracking-tighter uppercase">
             ESTRUCTURA <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent italic px-1">ORGANIZACIONAL</span>
           </h2>
