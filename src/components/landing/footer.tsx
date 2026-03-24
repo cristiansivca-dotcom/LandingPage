@@ -51,6 +51,7 @@ export function Footer() {
                 <Link
                   key={i}
                   href={social.href}
+                  aria-label={`Visitar nuestro perfil de ${social.icon.displayName || 'Red Social'}`}
                   className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
@@ -113,7 +114,7 @@ export function Footer() {
                 </div>
                 <span className="text-white/60 font-medium max-w-[200px]">
                   Coro, Estado Falcón <br />
-                  <span className="text-[10px] uppercase tracking-widest text-white/30">Venezuela</span>
+                  <span className="text-[10px] uppercase tracking-widest text-white/50">Venezuela</span>
                 </span>
               </li>
             </ul>
@@ -122,10 +123,10 @@ export function Footer() {
 
         {/* Derechos reservados */}
         <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">
             &copy; {currentYear} SIVCA. Vanguardia Industrial.
           </p>
-          <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.1em] text-white/20">
+          <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.1em] text-white/50">
             <Link href="#" className="hover:text-primary transition-colors">Privacidad</Link>
             <Link href="#" className="hover:text-primary transition-colors">Términos</Link>
           </div>

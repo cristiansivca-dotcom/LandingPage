@@ -122,6 +122,7 @@ export function Contact() {
               <div className="relative rounded-[2rem] overflow-hidden border border-white/10 group">
                 <div className="absolute inset-0 bg-primary/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
                 <iframe
+                  title="Mapa de ubicación sede principal SIVCA"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d425.35443103932374!2d-69.66648309004644!3d11.40915282911713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e842bff2cdf931b%3A0x6d7ff321d2d8a826!2sServicios%20Integrales%20de%20Venezuela%20(SIVCA)!5e1!3m2!1ses!2sve!4v1766152676712!5m2!1ses!2sve"
                   width="100%"
                   height="250"
@@ -209,7 +210,7 @@ export function Contact() {
                   </Button>
 
                   <div className="text-center">
-                    <p className="text-[9px] text-muted-foreground/60 font-medium uppercase tracking-[0.1em]">
+                    <p className="text-[9px] text-muted-foreground font-medium uppercase tracking-[0.1em]">
                       Al enviar este formulario, usted acepta nuestra política de privacidad y manejo de datos.
                     </p>
                   </div>

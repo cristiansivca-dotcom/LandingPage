@@ -97,7 +97,7 @@ function TeamCard({ name, role, photo, back }: TeamMember) {
         {/* Redes Sociales en hover (Desktop) o siempre accesibles por toque en móvil */}
         <div className="absolute inset-x-0 bottom-4 flex justify-center gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
           {[Instagram, Linkedin, Mail].map((Icon, i) => (
-            <button key={i} className="w-10 h-10 rounded-full bg-background/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:scale-110 transition-all shadow-xl">
+            <button key={i} aria-label="Red social del miembro" className="w-10 h-10 rounded-full bg-background/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:scale-110 transition-all shadow-xl">
               <Icon className="w-4 h-4" />
             </button>
           ))}

@@ -51,7 +51,7 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12">
-        <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105">
+        <Link href="/" aria-label="Volver al inicio" className="flex items-center gap-3 transition-transform hover:scale-105">
           <Image
             src={logoSivca}
             alt="SIVCA Logo"
@@ -108,12 +108,13 @@ export function Header() {
                 <SheetTitle className="sr-only">Menú principal</SheetTitle>
                 <div className="flex flex-col h-full py-10">
                   <div className="flex justify-between items-center mb-12">
-                     <Link href="/" className="transition-transform hover:scale-105">
+                     <Link href="/" aria-label="Volver al inicio" className="transition-transform hover:scale-105">
                        <Image src={logoSivca} alt="SIVCA Logo" width={80} height={80} className="object-contain" />
                      </Link>
                     <SheetClose asChild>
                       <Button variant="ghost" size="icon" className="hover:bg-white/5">
                         <X className="h-7 w-7" />
+                        <span className="sr-only">Cerrar menú</span>
                       </Button>
                     </SheetClose>
                   </div>

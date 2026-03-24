@@ -61,8 +61,8 @@ export function PremiumCarousel({ children, options, className }: PremiumCarouse
                     onClick={scrollPrev}
                     disabled={!prevBtnEnabled}
                     className={cn(
-                        "w-12 h-12 rounded-full bg-white/20 dark:bg-black/40 backdrop-blur-2xl border border-white/30 flex items-center justify-center text-white transition-all duration-300 pointer-events-auto shadow-2xl",
-                        "hover:bg-primary hover:border-primary hover:scale-110 active:scale-95 group-hover/carousel:translate-x-0",
+                        "w-12 h-12 rounded-full bg-background/80 backdrop-blur-md border border-border flex items-center justify-center text-foreground transition-all duration-300 pointer-events-auto shadow-xl",
+                        "hover:bg-primary hover:border-primary hover:text-white hover:scale-110 active:scale-95 group-hover/carousel:translate-x-0",
                         "opacity-80 group-hover/carousel:opacity-100 -translate-x-2 md:-translate-x-6 disabled:opacity-0"
                     )}
                     aria-label="Anterior"
@@ -74,8 +74,8 @@ export function PremiumCarousel({ children, options, className }: PremiumCarouse
                     onClick={scrollNext}
                     disabled={!nextBtnEnabled}
                     className={cn(
-                        "w-12 h-12 rounded-full bg-white/20 dark:bg-black/40 backdrop-blur-2xl border border-white/30 flex items-center justify-center text-white transition-all duration-300 pointer-events-auto shadow-2xl",
-                        "hover:bg-primary hover:border-primary hover:scale-110 active:scale-95 group-hover/carousel:translate-x-0",
+                        "w-12 h-12 rounded-full bg-background/80 backdrop-blur-md border border-border flex items-center justify-center text-foreground transition-all duration-300 pointer-events-auto shadow-xl",
+                        "hover:bg-primary hover:border-primary hover:text-white hover:scale-110 active:scale-95 group-hover/carousel:translate-x-0",
                         "opacity-80 group-hover/carousel:opacity-100 translate-x-2 md:translate-x-6 disabled:opacity-0"
                     )}
                     aria-label="Siguiente"
