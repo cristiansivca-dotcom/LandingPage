@@ -91,80 +91,77 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {SERVICES.map((item, index) => (
             <Dialog key={item.title}>
               <DialogTrigger asChild>
                 <div
                   className={cn(
-                    "group relative aspect-[4/5] flex flex-col justify-end p-10 rounded-[3rem] transition-all duration-700 cursor-pointer overflow-hidden backdrop-blur-3xl border border-white/5",
-                    "bg-white/[0.02] dark:bg-black/20 hover:border-white hover:-translate-y-4 hover:shadow-[0_40px_80px_rgba(0,0,0,0.3)] animate-reveal"
+                    "group relative min-h-[380px] flex flex-col justify-between p-8 md:p-10 rounded-3xl transition-all duration-500 cursor-pointer overflow-hidden border border-white/5",
+                    "bg-white/[0.02] dark:bg-zinc-900/40 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 animate-reveal"
                   )}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Background Gradient on Hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700 bg-primary" />
+                  {/* Subtle Glow */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 bg-primary blend-overlay" />
 
-                  {/* Icon Display */}
-                  <div className="absolute top-10 right-10">
-                    <div className="w-20 h-20 rounded-[1.5rem] flex items-center justify-center text-white transition-all duration-700 group-hover:rotate-[360deg] shadow-2xl bg-primary shadow-primary/20">
-                      <item.icon className="w-10 h-10" />
-                    </div>
+                  {/* Icon Area */}
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center text-white bg-primary/10 border border-primary/20 transition-all duration-500 group-hover:bg-primary group-hover:scale-105 group-hover:shadow-lg shadow-primary/20">
+                    <item.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
 
-                  <div className="relative z-10 space-y-6">
-                    <h3 className="font-headline text-3xl font-black text-foreground tracking-tight leading-tight transition-colors group-hover:text-primary">
+                  <div className="relative z-10 space-y-4 mt-8">
+                    <h3 className="font-headline text-2xl md:text-3xl font-black text-foreground tracking-tight leading-tight transition-colors group-hover:text-primary">
                       {item.title}
                     </h3>
-                    <p className="text-muted-foreground font-medium leading-relaxed line-clamp-3 group-hover:text-foreground transition-colors">
+                    <p className="text-muted-foreground text-sm md:text-base font-medium leading-relaxed line-clamp-3 group-hover:text-foreground/90 transition-colors">
                       {item.description}
                     </p>
 
-                    <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-                        <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                    <div className="pt-6 mt-6 border-t border-white/5 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                        <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground group-hover:text-foreground">Explorar servicio</span>
+                      <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground">Saber más</span>
                     </div>
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[700px] border-white/10 bg-background/95 backdrop-blur-3xl rounded-[3.5rem] p-10 md:p-16 overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)]">
-                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
 
-                <DialogHeader className="relative z-10 text-left space-y-10">
-                  <div className="w-24 h-24 rounded-3xl flex items-center justify-center text-white shadow-2xl bg-primary">
-                    <item.icon className="w-12 h-12" />
+              <DialogContent className="w-[95vw] sm:max-w-2xl border border-white/10 bg-zinc-950/95 backdrop-blur-2xl rounded-3xl p-6 md:p-12 overflow-y-auto overflow-x-hidden max-h-[90vh] shadow-2xl">
+                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+
+                <DialogHeader className="relative z-10 text-left space-y-8 mt-4 md:mt-0">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center text-white shadow-lg bg-primary/20 border border-primary/30">
+                    <item.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
                   </div>
 
                   <div className="space-y-4">
-                    <DialogTitle className="font-headline text-5xl md:text-6xl font-black text-foreground leading-[0.9] tracking-tighter">
+                    <DialogTitle className="font-headline text-3xl md:text-5xl font-black text-white leading-tight tracking-tighter">
                       {item.title}
                     </DialogTitle>
-                    <DialogDescription className="text-2xl text-foreground/80 font-medium leading-relaxed">
+                    <DialogDescription className="text-lg md:text-xl text-white/70 font-medium leading-relaxed">
                       {item.description}
                     </DialogDescription>
                   </div>
 
                   {item.back && (
-                    <div className="relative p-8 rounded-[2rem] bg-white/5 border border-white/10 group/quote">
-                      <div className="absolute -top-4 -left-4 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-xl">
-                        <Trophy className="w-5 h-5 text-primary" />
-                      </div>
-                      <p className="text-muted-foreground text-lg italic leading-relaxed font-medium">
-                        {item.back}
+                    <div className="relative p-6 md:p-8 rounded-2xl bg-white/5 border border-white/5 flex items-start gap-4">
+                      <Trophy className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p className="text-white/80 text-sm md:text-base italic leading-relaxed font-medium">
+                        "{item.back}"
                       </p>
                     </div>
                   )}
                 </DialogHeader>
 
-                <div className="relative z-10 mt-12 pt-10 border-t border-white/5 flex flex-col sm:flex-row gap-8 items-center justify-between">
-                  <div className="flex flex-col gap-1 items-start">
-                    <div className="flex items-center gap-2 text-primary text-[10px] font-black uppercase tracking-widest">
+                <div className="relative z-10 mt-8 md:mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-6 items-center justify-between">
+                  <div className="flex flex-col gap-1 items-center sm:items-start w-full sm:w-auto text-center sm:text-left">
+                    <div className="flex items-center gap-2 text-primary text-[10px] md:text-xs font-black uppercase tracking-widest">
                       <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                      Listos para servirte
+                      Disponibilidad Inmediata
                     </div>
-                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">Consultoría personalizada inmediata</span>
+                    <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Atención Especializada</span>
                   </div>
 
                   <button
@@ -173,9 +170,9 @@ export function Services() {
                       const url = `https://wa.me/584121259744?text=${encodeURIComponent(message)}`;
                       window.open(url, "_blank");
                     }}
-                    className="w-full sm:w-auto px-10 h-16 bg-primary text-white rounded-full font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-[0_20px_40px_rgba(var(--primary),0.3)] flex items-center justify-center gap-3 active:scale-95"
+                    className="w-full sm:w-auto px-8 md:px-10 h-14 md:h-16 bg-primary text-white rounded-full font-black text-xs md:text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 active:scale-95"
                   >
-                    Cotizar Servicio <ArrowRight className="w-5 h-5" />
+                    Cotizar Ahora <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                   </button>
                 </div>
               </DialogContent>
